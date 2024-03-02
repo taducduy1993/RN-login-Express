@@ -1,0 +1,10 @@
+model UserRole {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [roleId], references: [id])
+  userId     Int      @unique
+  role       Role     @relation(fields: [roleId], references: [id])
+  roleId     Int
+  status     Int      @default(0)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
